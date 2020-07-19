@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+      <f:loadBundle var="conf" basename="com.connectos.properties.config"></f:loadBundle>
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Coding Challenge</title>
+
+</h:head>
+
+<h:body>
+	<h3><h:outputText value="Coding Challenge - WINE" /></h3>
+     <br/>
+     <p:outputLabel styleClass="p-col-fixed" style="width:100px" value="Wine basic details" />
+     	 <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Lot code: " /> 
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px" value="#{wineBean.lotCode}" />
+	    </div>
+	    <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Description: " />
+	         <p:outputLabel id="description"  value=" #{wineBean.description}" />
+	    </div>
+	    <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Volume: " />
+	        <p:outputLabel id="volume"  value=" #{wineBean.volume}" />
+	    </div>
+	    <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Tank code: " />
+	            <p:outputLabel id="tankCode"  value=" #{wineBean.tankCode}"/>
+	    </div>
+	    <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Product state: " />
+	            <p:outputLabel id="productState"  value=" #{wineBean.productState}" />
+	    </div>
+	    <div class="p-field p-grid">
+	        <p:outputLabel styleClass="p-col-fixed" style="width:100px;color:red;" value="Owner Name: " />
+	            <p:outputLabel id="ownerName"  value=" #{wineBean.ownerName}"/>
+	    </div>
+	     <br/>
+         <br/><br/>
+        
+	        <h:form id="mainForm">
+	        <p:commandButton ajax="false" action="#{wineBean.selCol('variety')}" value="Variety" id="vr" style="margin-right:20px;" />
+			<p:commandButton ajax="false" action="#{wineBean.selCol('year')}" value="Year" id="yr" style="margin-right:20px;" />
+			<p:commandButton ajax="false" action="#{wineBean.selCol('region')}" value="Region" id="rr" style="margin-right:20px;" />
+			<p:commandButton ajax="false" action="#{wineBean.selCol('varietyAndYear')}" value="Variety and Year" id="var" style="margin-right:20px;" />
+			
+			
+		     <br/><br/>
+		        <p:dataTable id="tableC" var="comp" value="#{wineBean.componentList}" paginator="true" rows="5"
+		         paginatorPosition="bottom">
+		        	
+	            	<p:columns value="#{wineBean.selectedColumn}" var="colKey" 
+		        		columnIndexVar="colIndex">
+		        	
+		                <f:facet name="header">
+		                    <h:outputText value="#{wineBean.columnMap[colKey]}"/>
+		                </f:facet>
+		                <h:outputText value="#{comp[colKey]}"/>
+	            	</p:columns>
+	        	</p:dataTable>
+        <br/><br/>
+	        
+	  
+       
+   		</h:form>
+</h:body>
+</html>

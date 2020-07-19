@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15949603034340" configfile="/codingchallenge/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="prova.xhtml" x="122" y="754" id="pf15951521242636" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="index.xhtml"/>
+</pageflow:Pageflow>
